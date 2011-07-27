@@ -1,0 +1,18 @@
+prerequisities: 
+
+node.js, npm
+
+run: 
+
+npm install mongodb --mongodb:native
+npm install sesh
+npm install node-t
+npm install node-static
+npm install eyes
+npm install response
+npm install mongodb --mongodb:native
+
+quick-remainder:
+
+mongod as daemon: ./mongod --fork --logpath /var/log/mongodb.log --logappend
+
