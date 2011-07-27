@@ -2,7 +2,7 @@ var http = require('http')
 var url = require('url')
 var nodestatic = require('node-static')
 var handler = require('./handler')
-var session = require('./session.js/lib/core').magicSession();
+var session = require('sesh').magicSession();
 
 var staticServer = new nodestatic.Server('.');
 
@@ -28,4 +28,4 @@ function connection(request, response){
         }
     }
     
-http.createServer(connection).listen(8888);
+http.createServer(connection).listen(8887);

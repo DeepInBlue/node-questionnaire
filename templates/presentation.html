@@ -26,7 +26,7 @@
              <div><h1> {{step.name}} </h1></div>
              {% for question in step.questions %}
              <div class="question">
-                 <div><h2>{{question.text}}</h2></div>
+                 <div><h2>{{question.number}}. {{question.text}}</h2></div>
                      {% if question.type == 'multichoice' %}
                          {% for choice in question.options %}
                          <div class="check_container">
@@ -58,7 +58,7 @@
                      {% if question.type == 'branch' %}
                          {% for choice in question.options %}
                          <div class="check_container">
-                             <div class="check_input"><input id="{{step.id}}_{{question.number}}_{{choice.number}}" type="radio" class="link" value="{{choice.nextstep}}" name="goto"></div>
+                             <div class="check_input"><input id="{{step.id}}_{{question.number}}_{{choice.number}}" type="radio" class="link required" value="{{choice.nextstep}}" name="goto"></div>
                              <div class="check_label"><label for="{{step.id}}_{{question.number}}_{{choice.number}}">{{choice.text}}</label></div>
                          </div>
                          </br>
