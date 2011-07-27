@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
+<head> 
+    <link href="/static/css/style_node.css" rel="stylesheet" type="text/css"/> 
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta> 
+    <script src="/static/js/jquery-1.6.2.js" type="text/javascript"></script> 
+    <script src="/static/js/jquery-ui-1.8.11.custom/js/jquery-ui-1.8.11.custom.min.js" type="text/javascript"></script> 
+    <script src="/static/js/jquery.form.js" type="text/javascript"></script> 
+    <script src="/static/js/jquery.validate.js" type="text/javascript"></script> 
+    <script src="/static/js/bbq.js" type="text/javascript"></script> 
+    <script src="/static/js/jquery.form.wizard.js" type="text/javascript"></script> 
+    
+</head> 
+
+<body>
+<div id="wrapper"> 
+     <div class="box">
+     <div class="boxup">
+     <div class="boxdown">
+    
+     <form action="/questionnary" method="post" id="questionnary" class="bbq">
+         {% for step in steps %}
+         <div class="step" id="{{step.id}}">
+             <div><h1> {{step.name}} </h1></div>
+             {% for question in step.questions %}
+             <div class="question">
+                 <div><h2>{{question.text}}</h2></div>
+                     {% if question.type == 'multichoice' %}
+                         {% for choice in question.options %}
+                         <div class="check_container">
+                             <div class="check_input"><input type="checkbox" name="{{step.id}}_{{question.number}}_{{choice.number}}" id="{{step.id}}_{{question.number}}_{{choice.number}}"></div>
+                             <div class="check_label"><label for="{{question.number}}_{{choice.number}}" class="a">{{choice.text}}</label></div>
+                         </div>
+                         </br> 
+                        {% end %}
+                     {% end %}
+                     {%if question.type == 'select' %}
+                         <div class="select_container">
+                             {% if question.helptext %}
+                             <div class='helptext'>
+                                  {{question.helptext}}
+                             </div>
+                             {% end %}
+                             <select name="{{step.id}}_{{question.number}}">
+                             {% for opt in question.options %}
+                                 <option value="{{opt.text}}">{{opt.text}}</option>
+                             {% end %}
+                             </select>
+                         </div>
+                     {% end %}
+                     {% if question.type == 'open' %}
+                         <div>
+                             <input type="text" name="{{step.id}}_{{question.number}}" id="{{step.id}}_{{question.number}}">
+                         </div>
+                     {% end %}
+                     {% if question.type == 'branch' %}
+                         {% for choice in question.options %}
+                         <div class="check_container">
+                             <div class="check_input"><input id="{{step.id}}_{{question.number}}_{{choice.number}}" type="radio" class="link" value="{{choice.nextstep}}" name="goto"></div>
+                             <div class="check_label"><label for="{{step.id}}_{{question.number}}_{{choice.number}}">{{choice.text}}</label></div>
+                         </div>
+                         </br>
+                         {% end %} 
+                     {% end %}
+             </div>
+             {% end %}
+        </div>
+        {% end %}
+
+    <div id="buttons">
+        <input class="button" id="next" value="Wyślij" type="submit" />
+        <input class="button" id="back" value="Powrót" type="reset" />
+    </div>
+    </form>
+    
+    </div>
+    </div>
+    </div>
+    
+    <div id="data"></div>
+</div>
+    <script type="text/javascript">
+    $(document).ready(function(){
+         $("#questionnary").formwizard({ 
+            next: $('#next'),
+            back: $('#back'),
+            formPluginEnabled: true,
+            validationEnabled: true,
+            focusFirstInput: true,
+            disableUIStyles: true,
+            formOptions:{
+                success: function(d){
+                    //alert('Succes callback');
+                    $(".boxdown").html('<h1>Dziękujemy za wypełnienie ankiety!</h1>');
+                    },
+                error: function(e){
+                    alert(e);
+                    },
+                //beforeSubmit: function(data){$("#data").html("data sent to the server: " + $.param(data));},
+                dataType: "json",
+                resetForm: true
+                }
+            });
+            //alert('!!!');
+        });    
+    </script> 
+</body>
+</html>

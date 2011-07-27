@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
+<head> 
+    <link href="/static/css/style_node.css" rel="stylesheet" type="text/css"/> 
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta> 
+</head> 
+<body>
+<div id="wrapper">
+    <div class="box">
+    <div class="boxup">
+    <div class="boxdown"> 
+        <div> <h1> Proszę wprowadzić kod aktywacyjny </h1> </div>  
+        <form action="/login" method="post" id="questionnary">
+            <div class="question"> 
+                {% if error %} <div class="error"> {{error}} </div> {% end %} 
+                <input type="text" name="token" id="token"> 
+            </div>
+            <div id="buttons">
+                <input class="button" id="next" value="Wyślij" type="submit" />
+            </div>
+        </form>
+    </div>
+    </div>
+    </div>
+</div>
+</body>
+</html>

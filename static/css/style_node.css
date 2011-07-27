@@ -1,0 +1,215 @@
+*{ 
+margin:0; 
+padding:0;
+}
+
+body{ 
+font:100% normal Arial, Helvetica, sans-serif; background:#ffffff;
+}
+
+a, form,input,select,textarea{
+margin:0; 
+padding:0; 
+color: #483D8B;
+text-decoration: none;
+}
+
+p {
+width: 500px;
+text-align: justify;
+padding: 10px;
+}
+
+p.right {
+text-align: right;
+}
+
+p.padded {
+padding-left: 210px;
+}
+
+.box {
+margin:0 auto;
+width:630px;
+background:url(/static/images/630mid.jpg) repeat-y left top;
+position:relative;
+top:50px;
+}
+
+.boxup {
+background: url(/static/images/630up.jpg) no-repeat left top;
+}
+
+.boxdown {
+background: url(/static/images/630down.jpg) no-repeat left bottom;
+padding: 50px 40px 30px 40px;
+}
+
+.question {
+width: 550px;
+clear: both;
+padding: 10px;
+}
+
+h1 { 
+clear: both;
+width: 100%;
+color:#483D8B;
+font: normal 25px Georgia, "Times New Roman", Times, serif;
+padding:5px 0 5px 5px;
+border-bottom:1px solid #bbbbbb;
+}
+
+h1 a{
+color:#AA2808;
+text-decoration: none;
+text-align: right;
+font: normal 20px Georgia, "Times New Roman", Times, serif;
+}
+
+h2 { 
+width: 100%
+color:#483D8B;
+font: normal 16px Georgia, "Times New Roman", Times, serif;
+padding:20px 0 5px 5px;
+}
+
+.error {
+color:#800517;
+font: normal 12px Georgia, "Times New Roman", Times, serif;
+}
+
+label {
+float: left;
+width: 550px;
+height: 30px;
+text-decoration: none;
+text-align: left;
+font: normal 14px Georgia, "Times New Roman", Times, serif;
+color: #483D8B; 
+}
+
+label.a {
+width: 260px;
+}
+
+.check_container {
+width: 380px;
+height: 20px;
+position: relative;
+}
+
+.check_label {
+float: left;
+width: 260px;
+height: 20px;
+}
+
+.check_input {
+float: left;
+width: 120px;
+height: 20px;
+}
+
+input {
+float: left;
+width: 200px;
+padding:10px 10px;
+height: 18px;
+background:#ffffff;
+border-bottom: 1px double #bbbbbb;
+border-top: 1px double #bbbbbb;
+border-left:1px double #bbbbbb;
+border-right:1px double #bbbbbb;
+padding: 10px;
+}
+
+.helptext{
+float: left;
+width: 200px;
+font: normal 14px Georgia, "Times New Roman", Times, serif;
+}
+
+select {
+float: left;
+padding:10px 10px;
+width:200px;
+background:#ffffff;
+border-bottom: 1px double #bbbbbb;
+border-top: 1px double #bbbbbb;
+border-left:1px double #bbbbbb;
+border-right:1px double #bbbbbb;
+}
+
+option {
+float: left;
+padding:10px 10px;
+width:200px;
+background-color:#ffffff;
+border-bottom: 1px double #bbbbbb;
+border-top: 1px double #bbbbbb;
+border-left:1px double #bbbbbb;
+border-right:1px double #bbbbbb;
+}
+
+textarea {
+float: left;
+padding:10px 10px;
+width:500px;
+height:100px;
+background-color:#ffffff;
+border-bottom: 1px double #bbbbbb;
+border-top: 1px double #bbbbbb;
+border-left:1px double #bbbbbb;
+border-right:1px double #bbbbbb;
+}
+
+#buttons{
+padding: 20px 40px 40px 40px;
+margin: 0 auto;
+position: relative;
+clear: both;
+}
+
+.button {
+width: 67px;
+height: 27px;
+float: right;
+padding: 5px 10px;
+display: inline;
+background: #777 url(/static/images/button.png) repeat-x bottom;
+border: none;
+color: #fff;
+cursor: pointer;
+font-weight: bold;
+border-radius: 5px;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+text-shadow: 1px 1px #666;
+background-color: #483D8B;
+}
+
+.button:hover {
+background-position: 0 center;
+}
+
+.button:active {
+background-position: 0 top;
+position: relative;
+top: 1px;
+padding: 6px 10px 4px;
+}
+
+.button.red { background-color: #e50000; }
+.button.purple { background-color: #9400bf; }
+.button.green { background-color: #58aa00; }
+.button.orange { background-color: #ff9c00; }
+.button.blue { background-color: #483D8B; }
+.button.black { background-color: #333; }
+.button.white { background-color: #fff; color: #000; text-shadow: 1px 1px #fff; }
+.button.small { font-size: 75%; padding: 3px 7px; }
+.button.small:active { padding: 4px 7px 2px; background-position: 0 top; }
+.button.large { font-size: 125%; padding: 7px 12px; }
+.button.large:active { padding: 8px 12px 6px; background-position: 0 top; }
+
+
